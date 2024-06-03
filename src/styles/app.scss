@@ -1,0 +1,51 @@
+@use './categories.scss';
+$max_tablet:"max-width:768px";
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+}
+.Container{
+width: 95%;
+margin: auto;
+}
+:root{
+    --main-color:#F26122;
+}
+a{
+    text-decoration: none !important;
+}
+button{
+    color: white;
+    background-color: var(--main-color);
+    border: none;
+    border-radius: 20px;
+}
+.error{
+    color: red;
+}
+.label {
+    top: -15px;
+    background: white ;
+    padding: 0 5px;
+    left: 10px;
+}
+.form{
+    width: 50%;
+button{
+    border-radius: 10px;
+}
+@media ($max-tablet) {
+    width: 90% !important;
+}
+}
+.navbar {
+    a:last-of-type{
+    color: var(--main-color) !important;
+}
+}
+.input:focus{
+    background:none !important;
+}
