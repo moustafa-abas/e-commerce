@@ -1,18 +1,18 @@
-@use './categories.scss';
+$max_mobile:"max-width:577px";
 $max_tablet:"max-width:768px";
-
+$max_laptop:"max-width:992px";
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     text-transform: capitalize;
 }
+:root{
+    --main-color:#F26122;
+}
 .Container{
 width: 95%;
 margin: auto;
-}
-:root{
-    --main-color:#F26122;
 }
 a{
     text-decoration: none !important;
@@ -44,8 +44,135 @@ button{
 .navbar {
     a:last-of-type{
     color: var(--main-color) !important;
+    .no_cart{
+        right: 30px;
+        top: -10px;
 }
 }
-.input:focus{
-    background:none !important;
+}
+.spinner{
+    background-color: rgba(0, 0, 0, 0.655);
+    height: 100vh;
+}
+.categories{
+    .category{
+        width: 17%;
+        height: 30vh;
+        border-radius: 15px 40px  ;
+
+        box-shadow: 2px 2px 5px 5px rgba(128, 128, 128, 0.667);
+        @media ($max-tablet) {
+            width: 40% ; 
+        }
+        &:hover .overlay{
+            display: flex !important;
+        }
+        .overlay{
+            border-radius: 10px 30px  ;
+            background-color:rgba(0, 0, 0, 0.628);
+            transition: all 1s;
+        }
+        h5{
+            transform: translate(-50%,-50%);
+            color: #fff;
+        }
+        img{
+            cursor: pointer;
+            border-radius: 15px 30px;
+        }
+    }
+}
+.mostProducts, .allproduct{
+    .product{
+        width:20%;
+        border-radius: 15px 40px  ;
+        box-shadow: -1px -1px 3px 3px #f2602273;
+        overflow: hidden;
+        @media ($max_laptop) {
+            width: 40%;
+        }
+        @media ($max-tablet) {
+            width: 45%;
+        }
+        @media ($max_mobile) {
+            width: 100%;
+        }
+
+h4{
+    color: var(--main-color);
+}
+img{
+    border-radius: 15px 40px  ;
+cursor: pointer;
+}
+}
+button{
+    border-radius: 10px;
+    &:last-of-type{
+        @media ($max_mobile) {
+            
+            width: 50% !important;
+        }
+    }
+}
+a{
+    color: white ;
+
+}
+}
+.allproduct{
+    .active{
+        &::before{
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--main-color);
+            position: absolute;
+            top: -40%;
+            right: 50%;
+        }
+    }
+    button{
+        background: rgba(247, 160, 122, 0.16);
+color: var(--main-color);
+border-radius: 20px;
+position: relative;
+    }
+.products{
+    button{
+        background-color: var(--main-color );
+        color: white;
+        border-radius: 10px;
+    }
+}
+}
+
+.cart , .selectedproduct{
+    .product{
+        .left, .right{
+            @media ($max-tablet) {
+                width: 100% !important;
+            }
+        }
+        h5{
+            color: gray;
+        }
+        .quantity{
+            img{
+                cursor: pointer;
+            }
+        }    
+    }
+            span{
+                color: var(--main-color);
+
+            }
+            button{
+                border-radius: 8px;
+                @media ($max-tablet) {
+                    width: 50% !important;
+                }
+                }
+
 }

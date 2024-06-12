@@ -5,7 +5,8 @@ const initialState={
     products:null,
     error:null,
     productId:null,
-    productData:null 
+    productData:null,
+    searchValue:''
 }
 export const fetchProducts=createAsyncThunk(
     'products/fetchProducts',async()=>{
@@ -26,6 +27,10 @@ const productsSlice=createSlice({
     reducers:{
 ProductDetails:(state,action)=>{
     state.productId=action.payload
+},
+SearchValue:(state,action)=>{
+state.searchValue=action.payload
+console.log(action.payload)
 },
     },
     extraReducers:(builder)=>{
@@ -65,4 +70,4 @@ location.replace('/product')
     }
 })
 export default productsSlice.reducer
-export const{ProductDetails}=productsSlice.actions
+export const{ProductDetails,SearchValue}=productsSlice.actions

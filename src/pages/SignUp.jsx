@@ -2,7 +2,8 @@ import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { sign } from '../redux/useSlice';
-import axios from 'axios';
+import Spinner from 'react-bootstrap/Spinner';
+
 const SignUp = () => {
 const{register,handleSubmit,formState:{errors},watch}=useForm({
 defaultValues:{
@@ -17,6 +18,7 @@ defaultValues:{
 
 const dispatch=useDispatch()
 const userData=useSelector((state)=>state.user.userData)
+const loading=useSelector((state)=>state.user.loading)
 
 console.log(userData)
 // const submit=(data ,event)=>{
@@ -35,7 +37,13 @@ console.log(userData)
 const onSubmit = (data) => {
 dispatch(sign(data))
   };
-  return (
+  return (<div className='position-relative'>
+        {loading?
+      <div className="spinner position-absolute w-100  ">
+    <Spinner animation="border" className=' position-absolute top-50 start-50 p-4 text-light' />
+    </div>
+    
+    :
     <Form noValidate className='form   mx-auto my-5 d-flex flex-column'  onSubmit={handleSubmit(onSubmit)}>
       <Form.Group className='position-relative' >
         <Form.Label className='label position-absolute'> Name:</Form.Label>
@@ -142,6 +150,8 @@ dispatch(sign(data))
 
     <button type="submit "className='py-3  w-50 mx-auto'>Submit form</button>
   </Form>
+  }
+  </div>
   )
 }
 

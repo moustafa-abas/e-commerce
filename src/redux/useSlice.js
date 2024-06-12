@@ -5,7 +5,7 @@ const initialState={
 isLogin:false,
 loading:false,
 userData:null,
-error:null,
+error:false,
 }
 export const sign=createAsyncThunk('user/sign',
     async(data)=>{
@@ -34,7 +34,7 @@ const userSlice=createSlice({
     initialState,
     reducers:{
 logOut:(state)=>{
-    // location.replace('/SignUp')
+    location.replace('/')
 state.isLogin=false
 state.userData=null
 }
@@ -48,13 +48,13 @@ state.loading=true
 state.loading=false
 state.isLogin=true
 state.userData=action.payload
-state.error=null
+state.error=false
 location.replace('/')
 })   
-     .addCase(sign.rejected,(state,action)=>{
+     .addCase(sign.rejected,(state)=>{
 state.loading=false
 state.isLogin=false
-state.error=action.payload
+state.error=true
 console.log(state.error)
      })   
      .addCase(login.pending,(state)=>{
@@ -64,14 +64,14 @@ state.loading=true
 state.loading=false
 state.isLogin=true
 state.userData=action.payload
-state.error=null
+state.error=false
 location.replace('/')
      })   
-     .addCase(login.rejected,(state,action)=>{
+     .addCase(login.rejected,(state)=>{
 state.loading=false
 state.isLogin=false
 state.userData=null
-state.error=action.payload
+state.error=true
 console.log(state.error)
      })   
     }
