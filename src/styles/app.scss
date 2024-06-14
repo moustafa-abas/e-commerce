@@ -176,3 +176,32 @@ position: relative;
                 }
 
 }
+footer{
+    .right , .left{
+        width: 40%;
+    }
+    .center{
+        width: 60%;
+        @media ($max_mobile) {
+            width: 100%;
+            .links{
+                width: 80% !important;
+            }
+        }
+    }
+background-color: black;
+color: white;
+h2{
+    color: var(--main-color);
+}
+.right{
+a{
+    color: white;
+    transition: all 1s;
+    &:hover{
+        padding-left: 30px;
+        color: var(--main-color);
+    }
+}
+}
+}

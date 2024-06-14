@@ -6,6 +6,7 @@ import { fetchProducts } from "../redux/productSlice"
 import { getUserCart } from "../redux/cartSlice"
 import banar from'../assets/banar.jpg'
 import Spinner from 'react-bootstrap/Spinner';
+import Footer from "../components/Footer"
 
 const Home = () => {
   const dispatch=useDispatch()
@@ -33,6 +34,7 @@ const loading=useSelector((state)=>state.cart.loading)
       <h2 className="my-5 text-center"> most popular</h2>
       <MostProducts/>
     </div>
+      <Footer/>
     </>
 }
     </div>
