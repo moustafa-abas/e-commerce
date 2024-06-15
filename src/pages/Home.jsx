@@ -15,7 +15,7 @@ const Home = () => {
     dispatch(fetchProducts())
     dispatch(fetchCategories())
     
-},[])
+},[dispatch])
 const loading=useSelector((state)=>state.cart.loading)
 
   useEffect(()=>{    

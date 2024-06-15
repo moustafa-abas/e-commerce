@@ -1,14 +1,14 @@
 import {  useSelector } from "react-redux"
 
-import { useEffect } from "react"
-import { useDispatch } from "react-redux"
-import { fetchCategories } from "../redux/catSlice"
+// import { useEffect } from "react"
+// import { useDispatch } from "react-redux"
+// import { fetchCategories } from "../redux/catSlice"
 
 const Categories = () => {
-  const dispatch=useDispatch()
-  useEffect(()=>{
-    dispatch(fetchCategories())
-  },[dispatch])
+  // const dispatch=useDispatch()
+  // useEffect(()=>{
+  //   dispatch(fetchCategories())
+  // },[dispatch])
   const categories=useSelector((state)=>state.categories.category?.data || [])
   return (
     <div className="categories text-center  ">
