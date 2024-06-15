@@ -7,11 +7,13 @@ import { getUserCart } from "../redux/cartSlice"
 import banar from'../assets/banar.jpg'
 import Spinner from 'react-bootstrap/Spinner';
 import Footer from "../components/Footer"
+import { fetchCategories } from "../redux/catSlice"
 
 const Home = () => {
   const dispatch=useDispatch()
   useEffect(()=>{
     dispatch(fetchProducts())
+    dispatch(fetchCategories())
     
 },[])
 const loading=useSelector((state)=>state.cart.loading)
@@ -32,7 +34,7 @@ const loading=useSelector((state)=>state.cart.loading)
     <div className="Container">
       <Categories/>
       <h2 className="my-5 text-center"> most popular</h2>
-      {/* <MostProducts/> */}
+      <MostProducts/>
     </div>
       <Footer/>
     </>
