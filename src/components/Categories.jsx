@@ -9,7 +9,7 @@ const Categories = () => {
   useEffect(()=>{
     dispatch(fetchCategories())
   },[])
-  const categories=useSelector((state)=>state.categories.category && state.categories.category.data)
+  const categories=useSelector((state)=>state.categories.category?.data)
   return (
     <div className="categories text-center  ">
       <h2 className="mt-4"> our categories</h2>
