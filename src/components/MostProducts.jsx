@@ -10,7 +10,7 @@ const dispatch=useDispatch()
   useEffect(()=>{
     dispatch(fetchProducts())
   },[])
-  const products=useSelector((state)=>state.products.products.data)
+  const products=useSelector((state)=>state.products.products && state.products.products.data)
   // console.log(products.data)
   const shuffledProducts = [...products].sort(() => Math.floor(Math.random()*3)-1 ).slice(0,8);
   // const shuffledProducts = [...products].slice(9,18)
