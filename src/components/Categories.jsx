@@ -8,7 +8,7 @@ const Categories = () => {
   const dispatch=useDispatch()
   useEffect(()=>{
     dispatch(fetchCategories())
-  },[])
+  },[dispatch])
   const categories=useSelector((state)=>state.categories.category?.data || [])
   return (
     <div className="categories text-center  ">
