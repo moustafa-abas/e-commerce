@@ -32,7 +32,7 @@ const loading=useSelector((state)=>state.cart.loading)
     <div className="Container">
       <Categories/>
       <h2 className="my-5 text-center"> most popular</h2>
-      <MostProducts/>
+      {/* <MostProducts/> */}
     </div>
       <Footer/>
     </>
