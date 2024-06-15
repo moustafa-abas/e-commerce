@@ -18,6 +18,7 @@ const Header = () => {
     },[])
     const numOfProduct=useSelector((state)=>state.cart.numOfProduct)
     const logined=useSelector((state)=>state.user.isLogin)
+    // console.log(location.pathname)
 return (
 <Navbar expand="lg" className="navbar bg-body-tertiary mt-2 ">
     <Container fluid>

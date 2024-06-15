@@ -19,6 +19,7 @@ defaultValues:{
 const dispatch=useDispatch()
 const userData=useSelector((state)=>state.user.userData)
 const loading=useSelector((state)=>state.user.loading)
+const error=useSelector((state)=>state.user.error)
 
 console.log(userData)
 // const submit=(data ,event)=>{
@@ -87,8 +88,10 @@ dispatch(sign(data))
           )}
         />
       </Form.Group>
-        <p className='error fs-6 mt-3 ms-2'>{errors.email?.message}</p>
-
+{error?
+        <p className='error fs-6 mt-3 ms-2'>* email already exists</p>:null
+}
+        <p className='error fs-6  ms-2'>{errors.email?.message}</p>
       <Form.Group   className='position-relative'>
         <Form.Label  className='label position-absolute'> Password:</Form.Label>
         <Form.Control className=' py-3'

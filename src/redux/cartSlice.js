@@ -109,6 +109,7 @@ changeCount:(state,action)=>{
          state.loading=false
          state.cartDetails=action.payload
          state.numOfProduct=state.cartDetails.numOfCartItems
+         alert("product added done")
         })
         .addCase(addToCart.rejected,(state,action)=>{
             state.loading=false

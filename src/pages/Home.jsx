@@ -70,7 +70,7 @@ const shuffledProducts = [...products].sort(() => Math.floor(Math.random()*3)-1 
   :<h2 className=" text-center">no product available now</h2>
   }
   </div>
-  <button className="py-3 w-25 d-flex my-5 justify-content-center mx-auto"><a href="/allproduct"> all product</a></button>
+  <button className="py-3 w-25 d-flex my-5 justify-content-center mx-auto"><a href='/allProduct'> all product</a></button>
   </div>    </div>
       <Footer/>
     </>
