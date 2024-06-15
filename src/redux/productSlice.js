@@ -10,14 +10,14 @@ const initialState={
 }
 export const fetchProducts=createAsyncThunk(
     'products/fetchProducts',async()=>{
-        const response=await axios.get('https:ecommerce.routemisr.com/api/v1/products')
+        const response=await axios.get('https://ecommerce.routemisr.com/api/v1/products')
         return response.data
     }
 )
 export const fetchProductData=createAsyncThunk(
     'products/fetchProductData',async(_, {getState} ) =>{
         const id = getState().products.productId
-        const response=await axios.get(`https:ecommerce.routemisr.com/api/v1/products/${id}`)
+        const response=await axios.get(`https://ecommerce.routemisr.com/api/v1/products/${id}`)
         return response.data
     }
 )
