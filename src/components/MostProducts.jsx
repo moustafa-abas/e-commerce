@@ -11,6 +11,7 @@ const dispatch=useDispatch()
     dispatch(fetchProducts())
   },[])
   const products=useSelector((state)=>state.products.products.data)
+  // console.log(products.data)
   const shuffledProducts = [...products].sort(() => Math.floor(Math.random()*3)-1 ).slice(0,8);
   // const shuffledProducts = [...products].slice(9,18)
 return (
@@ -18,7 +19,7 @@ return (
   <div className=" my-5 d-flex  flex-wrap gap-5 justify-content-center">
 
   {
-    shuffledProducts.map((item)=>
+    shuffledProducts?.map((item)=>
       <div className="product p-2 d-flex flex-column justify-content-between" key={item._id}>
     <img src={item.imageCover} alt="" className="w-100 position-relative" height={250} onClick={()=>{dispatch(ProductDetails(item._id))
         dispatch(fetchProductData())

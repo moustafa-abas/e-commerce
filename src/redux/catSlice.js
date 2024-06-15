@@ -2,7 +2,7 @@ import { createAsyncThunk,createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 const initialState={
     loading:false,
-    category:null,
+    category:[],
     error:null
 }
 export const fetchCategories= createAsyncThunk(
