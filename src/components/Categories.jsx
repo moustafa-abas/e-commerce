@@ -1,24 +1,15 @@
 import {  useSelector } from "react-redux"
 
-// import { useEffect } from "react"
-// import { useDispatch } from "react-redux"
-// import { fetchCategories } from "../redux/catSlice"
 
 const Categories = () => {
-  // const dispatch=useDispatch()
-  // useEffect(()=>{
-  //   dispatch(fetchCategories())
-  // },[dispatch])
-  const categories=useSelector((state)=>state.categories.category?.data || [])
+  const categories=useSelector((state)=>state.categories.category?.data ||[])
   return (
     <div className="categories text-center  ">
       <h2 className="mt-4"> our categories</h2>
       <div className=" d-flex  gap-5 flex-wrap  my-5 justify-content-center">
 
-      {categories.length===0?
-      <h2>loading</h2>
-      :
-        categories?.map((item)=>
+      {categories?
+        categories.map((item)=>
           
         <div key={item._id} className="category position-relative " >
 <div className="overlay position-absolute  z-3 w-100 h-100 d-lg-none">
@@ -26,6 +17,7 @@ const Categories = () => {
 </div>
 <img src={item.image} alt="" className="  w-100 h-100 mb-5 "  />
         </div>)
+        :<h2 className=" text-center">no categories available now</h2>
       }
       </div>
 

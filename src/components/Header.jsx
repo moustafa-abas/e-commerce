@@ -8,9 +8,14 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../redux/useSlice';
 import { SearchValue } from '../redux/productSlice';
+import { useEffect } from 'react';
+import { getUserCart } from '../redux/cartSlice';
 
 const Header = () => {
     const dispatch =useDispatch()
+    useEffect(()=>{
+        dispatch(getUserCart())
+    },[])
     const numOfProduct=useSelector((state)=>state.cart.numOfProduct)
     const logined=useSelector((state)=>state.user.isLogin)
 return (
@@ -19,7 +24,8 @@ return (
     <Navbar.Brand href="/">E-commerce</Navbar.Brand>
     <Navbar.Brand href="/cart" className='position-relative' >
             <FontAwesomeIcon icon={faCartShopping} className='fs-4 mx-5 position-relative' />
-        <h4 className='no_cart position-absolute rounded-circle  p-1 '>{numOfProduct}</h4>
+        <h4 className='no_cart position-absolute rounded-circle  p-1 '>
+            {logined?numOfProduct:0}</h4>
         </Navbar.Brand>
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">

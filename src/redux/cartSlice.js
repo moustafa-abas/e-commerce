@@ -109,12 +109,10 @@ changeCount:(state,action)=>{
          state.loading=false
          state.cartDetails=action.payload
          state.numOfProduct=state.cartDetails.numOfCartItems
-         alert("process success")
         })
         .addCase(addToCart.rejected,(state,action)=>{
             state.loading=false
             state.error=action.payload
-            alert('login or signup first')
         })
         .addCase(getUserCart.pending,(state)=>{
             state.loading=true

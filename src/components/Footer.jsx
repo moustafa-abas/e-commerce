@@ -20,9 +20,9 @@ return (
         <h5 className=' fw-light my-5'> all products you need in our shop</h5>
         <div className="links w-50  mx-auto d-flex justify-content-between  align-items-center">
 
-        <a  href =  "https://www.linkedin.com/in/moustafa-3bas-36a316267?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bmq5Ca5WKTtuXSHPGmSZw6g%3D%3D" > <img src={linkedin} alt="" width={50} /></a>
-<a  href =  "https://www.facebook.com/mostafa.abas8?mibextid=ZbWKwL" > <img src={facebook} alt="" className='face' width={50}/></a>
-<a  href =  "https://wa.me/+201280163605?" > <img src={whats} alt="" width={50}/></a>
+        <a target='_blank' rel="noopener noreferrer" href =  "https://www.linkedin.com/in/moustafa-3bas-36a316267?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bmq5Ca5WKTtuXSHPGmSZw6g%3D%3D" > <img src={linkedin} alt="" width={50} /></a>
+<a target='_blank' rel="noopener noreferrer" href =  "https://www.facebook.com/mostafa.abas8?mibextid=ZbWKwL" > <img src={facebook} alt="" className='face' width={50}/></a>
+<a target='_blank' rel="noopener noreferrer" href =  "https://wa.me/+201280163605?" > <img src={whats} alt="" width={50}/></a>
             
         </div>
     </div>

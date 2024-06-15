@@ -3,11 +3,15 @@ import { Carousel } from "react-bootstrap"
 import MostProducts from "../components/MostProducts"
 import { addToCart } from "../redux/cartSlice"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons"
+import { faCartShopping, faX } from "@fortawesome/free-solid-svg-icons"
 import Spinner from 'react-bootstrap/Spinner';
+import { useState } from "react"
 
 const Product = () => {
 const dispatch=useDispatch()
+const [alert, setAlert] = useState(false)
+const logined=useSelector((state)=>state.user.isLogin)
+
     const productData=useSelector((state)=>state.products.productData)
    const productImages=productData.images
    const rating=productData.ratingsAverage
@@ -58,8 +62,9 @@ const dispatch=useDispatch()
       </div>
       </div>
             <div className="d-flex justify-content-between fs-5  fw-bold"> price<span>{productData.price}</span></div>
-            <button className=" w-50 mb-2 mt-5 py-3" onClick={()=>{dispatch(addToCart())
-            }}> add to cart <FontAwesomeIcon icon={faCartShopping} className='fs-5 mx-2 position-relative' />            </button>
+            <button className=" w-50 mb-2 mt-5 py-3" onClick={()=>{{logined? dispatch(addToCart()):setAlert(true)}
+           
+           }}> add to cart <FontAwesomeIcon icon={faCartShopping} className='fs-5 mx-2 position-relative' />            </button>
         </div>
       </div>
       <h2 className="my-5 text-center "> other product</h2>
@@ -67,6 +72,19 @@ const dispatch=useDispatch()
       <MostProducts/>
       </div>
           }
+          {
+  alert?
+  <div className="alert position-fixed top-50  w-100 h-100 start-50 z-3   text-light ">
+    <div className="content w-50 position-absolute top-50 start-50 p-5 text-center">
+    <FontAwesomeIcon icon={faX} className=" x-mark mt-4 position-absolute top-0 end-0 me-5" onClick={()=>setAlert(false)}/>
+    <h2>you are not logined</h2>
+    <div className=" d-flex justify-content-between w-75 mx-auto gap-4 mt-5">
+      <button className="w-50 py-2"><a href="/LogIn">log in</a></button>
+      <button className="w-50 py-2"><a href="/SignUp">sign up </a></button>
+    </div>
+    </div>
+  </div>
+:null}
     </div>
   )
 }

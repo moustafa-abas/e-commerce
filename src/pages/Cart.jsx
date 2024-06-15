@@ -8,19 +8,20 @@ import { Spinner } from 'react-bootstrap'
 
 const Cart = () => {
   const dispatch=useDispatch()
+  useEffect(()=>{
+    dispatch(getUserCart())
+  },[dispatch]) 
   const logined= useSelector((state)=>state.user.isLogin)
   const count=useSelector((state=>state.cart.productCount))
   const id=useSelector((state=>state.cart.productCartId))
   const data=useSelector((state)=>state.cart.addedProduct)
   const loading=useSelector((state)=>state.cart.loading)
-  const totalCartPrice=useSelector((state)=>state.cart.cartDetails.data.totalCartPrice)
+  const totalCartPrice=useSelector((state)=>state.cart.cartDetails?.data.totalCartPrice)
 
 useEffect(()=>{
   dispatch(updateQuantity({count , id}))
 },[count])
-useEffect(()=>{
-  dispatch(getUserCart())
-},[])
+
 return (
 <div className="cart position-relative">
 <>
@@ -31,8 +32,8 @@ return (
 <Spinner animation="border" className=' position-absolute top-50 start-50 p-4 text-light' />
 </div>
 :
-<>
-{data.length?
+ <>
+{data?
 <div className="Container">
 {data.map((item)=>
   <div className="product my-5 d-flex flex-column flex-md-row gap-md-5" key={item._id}>
@@ -69,7 +70,7 @@ dispatch(remove())
 </div>
 :<h2 className="text-center mt-5">no product in your cart</h2>
 }
-</>
+</> 
 }
 </>
 :<h2 className=" text-center mt-5">please login or signup first</h2>

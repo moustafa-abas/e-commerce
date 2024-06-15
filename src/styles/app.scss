@@ -45,13 +45,13 @@ button{
     a:last-of-type{
     color: var(--main-color) !important;
     .no_cart{
-        right: 30px;
+        right: 20px;
         top: -10px;
 }
 }
 }
 .spinner{
-    background-color: rgba(0, 0, 0, 0.655);
+    background-color: rgba(0, 0, 0, 0.251);
     height: 100vh;
 }
 .categories{
@@ -204,4 +204,24 @@ a{
     }
 }
 }
+}
+.alert{
+    transform: translate(-50%,-50%);
+    background-color: rgba(248, 240, 240, 0.555) !important;
+    .content{
+        transform: translate(-50%,-50%);
+        border-radius: 20px !important;
+        border-top-left-radius: 50px !important;
+        border-bottom-right-radius: 50px !important;
+        background-color: black !important;
+.x-mark{
+    cursor: pointer;
+}
+        button{
+            border-radius: 8px;
+            a{
+                color: white !important;
+            }
+        }
+    }
 }
