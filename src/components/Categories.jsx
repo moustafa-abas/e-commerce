@@ -15,7 +15,7 @@ const Categories = () => {
       <h2 className="mt-4"> our categories</h2>
       <div className=" d-flex  gap-5 flex-wrap  my-5 justify-content-center">
       {
-        categories.map((item)=>
+        categories?.map((item)=>
         <div key={item._id} className="category position-relative " >
 <div className="overlay position-absolute  z-3 w-100 h-100 d-lg-none">
 <h5 className=" position-absolute  top-50 start-50 ">{item.name}</h5>
