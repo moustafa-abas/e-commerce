@@ -17,7 +17,7 @@ const logined=useSelector((state)=>state.user.isLogin)
    const rating=productData.ratingsAverage
    const loading=useSelector((state)=>state.cart.loading)
   return (
-    <div  className="position-relative selectedproduct">
+    <div  className="position-relative selectedproduct pb-5">
         {loading?
       <div className="spinner position-absolute w-100  ">
     <Spinner animation="border" className=' position-absolute top-50 start-50 p-4 text-light' />
@@ -25,7 +25,7 @@ const logined=useSelector((state)=>state.user.isLogin)
     
     :
     <div className="Container ">
-      <div className="  d-flex justify-content-center flex-column flex-md-row  my-4 gap-md-5">
+      <div className="  d-flex justify-content-center flex-column flex-md-row   gap-md-5">
         <div className="left w-50">
 
 <Carousel data-bs-theme="dark" className="mt-3">

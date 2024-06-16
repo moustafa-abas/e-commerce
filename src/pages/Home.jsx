@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCartShopping, faX } from "@fortawesome/free-solid-svg-icons"
 
 const Home = () => {
+  
   const [alert, setAlert] = useState(false)
   const logined=useSelector((state)=>state.user.isLogin)
 
@@ -32,13 +33,13 @@ const shuffledProducts = [...products].sort(() => Math.floor(Math.random()*3)-1 
 
 
   return (
-    <div className="position-relative">
-        {/* {loading?
+    <div className="home position-relative pb-5">
+        {loading?
       <div className="spinner position-absolute w-100  ">
     <Spinner animation="border" className=' position-absolute top-50 start-50 p-4 text-light' />
     </div>
     
-    : */}
+    :
     <>
     <img src={banar} alt="" className="w-100" />
     <div className="Container">
@@ -70,11 +71,10 @@ const shuffledProducts = [...products].sort(() => Math.floor(Math.random()*3)-1 
   :<h2 className=" text-center">no product available now</h2>
   }
   </div>
-  <button className="py-3 w-25 d-flex my-5 justify-content-center mx-auto"><a href='/allProduct'> all product</a></button>
+  <button className="py-3 w-25 d-flex mt-5 justify-content-center mx-auto"><a href='/allProduct'> all product</a></button>
   </div>    </div>
-      <Footer/>
     </>
-{/* } */}
+ } 
 {
   alert?
   <div className="alert position-fixed top-50  w-100 h-100 start-50 z-3   text-light ">

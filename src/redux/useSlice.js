@@ -6,6 +6,7 @@ isLogin:false,
 loading:false,
 userData:null,
 error:false,
+darkTheme:false
 }
 export const sign=createAsyncThunk('user/sign',
     async(data)=>{
@@ -37,6 +38,10 @@ logOut:(state)=>{
     location.replace('/')
 state.isLogin=false
 state.userData=null
+},
+darkTheme:(state)=>{
+    state.darkTheme=!state.darkTheme
+    console.log(state.darkTheme)
 }
     },
     extraReducers:(builder)=>{
@@ -77,4 +82,4 @@ console.log(state.error)
     }
 })
 export default userSlice.reducer
-export const{logOut}=userSlice.actions
+export const{logOut,darkTheme}=userSlice.actions

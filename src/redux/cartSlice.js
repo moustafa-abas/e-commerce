@@ -109,7 +109,9 @@ changeCount:(state,action)=>{
          state.loading=false
          state.cartDetails=action.payload
          state.numOfProduct=state.cartDetails.numOfCartItems
-         alert("product added done")
+         setTimeout(() => {
+            console.log('done')
+         }, 5000);
         })
         .addCase(addToCart.rejected,(state,action)=>{
             state.loading=false

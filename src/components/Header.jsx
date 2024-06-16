@@ -4,23 +4,24 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { faCartShopping, faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from 'react-redux';
-import { logOut } from '../redux/useSlice';
+import { darkTheme, logOut } from '../redux/useSlice';
 import { SearchValue } from '../redux/productSlice';
-import { useEffect } from 'react';
+import { useEffect, } from 'react';
 import { getUserCart } from '../redux/cartSlice';
 
 const Header = () => {
+
     const dispatch =useDispatch()
     useEffect(()=>{
         dispatch(getUserCart())
     },[])
     const numOfProduct=useSelector((state)=>state.cart.numOfProduct)
     const logined=useSelector((state)=>state.user.isLogin)
-    // console.log(location.pathname)
+    const darktheme=useSelector((state)=>state.user.darkTheme)
 return (
-<Navbar expand="lg" className="navbar bg-body-tertiary mt-2 ">
+<Navbar expand="lg" className="navbar  pt-3 ">
     <Container fluid>
     <Navbar.Brand href="/">E-commerce</Navbar.Brand>
     <Navbar.Brand href="/cart" className='position-relative' >
@@ -28,6 +29,8 @@ return (
         <h4 className='no_cart position-absolute rounded-circle  p-1 '>
             {logined?numOfProduct:0}</h4>
         </Navbar.Brand>
+ 
+
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">
 
@@ -38,7 +41,7 @@ return (
         >
         <Nav.Link href="/">Home</Nav.Link>
         <Nav.Link href="/allProduct">all product</Nav.Link>
-        <NavDropdown title="account" id="navbarScrollingDropdown">
+        <NavDropdown className='dropDown' title="account" id="navbarScrollingDropdown">
 {logined?
            <> {
                 location.pathname==='/SignUp' ||location.pathname==='/LogIn'?null:
@@ -63,7 +66,7 @@ return (
         </Nav>
         {
                 location.pathname==='/allProduct'?
-        <Form className="d-flex">
+        <Form className="d-flex me-3">
         <Form.Control
             type="search"
             placeholder="Search by brand"
@@ -77,9 +80,14 @@ return (
                 :null
 
             }
-
-
     </Navbar.Collapse>
+                <Navbar.Brand>
+<button className='  ' >{darktheme?<FontAwesomeIcon icon={faSun} onClick={()=>dispatch(darkTheme())} className='w-100'/>
+    :
+    <FontAwesomeIcon icon={faMoon} className='text-dark w-100'onClick={()=>dispatch(darkTheme())} />
+}
+    </button>
+        </Navbar.Brand>
 
     </Container>
 </Navbar>

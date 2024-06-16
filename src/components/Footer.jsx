@@ -4,7 +4,7 @@ import whats from'../assets/whats.svg'
 const Footer = () => {
 return (
     <>
-<footer className=" pt-5 mt-5">
+<footer className=" pt-5 ">
     <div className='d-flex flex-column  flex-sm-row justify-content-sm-evenly'>
     <div className='left d-none d-lg-flex flex-column align-items-end fw-light pe-3 '>
         <h2 className='fw-bold fs-1'>Contact Us</h2>

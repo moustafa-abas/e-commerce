@@ -3,8 +3,14 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { sign } from '../redux/useSlice';
 import Spinner from 'react-bootstrap/Spinner';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 
 const SignUp = () => {
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+
 const{register,handleSubmit,formState:{errors},watch}=useForm({
 defaultValues:{
     name:'',
@@ -20,8 +26,9 @@ const dispatch=useDispatch()
 const userData=useSelector((state)=>state.user.userData)
 const loading=useSelector((state)=>state.user.loading)
 const error=useSelector((state)=>state.user.error)
+const theme=useSelector((state)=>state.user.darkTheme)
 
-console.log(userData)
+console.log(theme)
 // const submit=(data ,event)=>{
 //     const form = event.currentTarget;
 //     if (form.checkValidity() === false) {
@@ -38,14 +45,14 @@ console.log(userData)
 const onSubmit = (data) => {
 dispatch(sign(data))
   };
-  return (<div className='position-relative'>
+  return (<div className='signup position-relative'>
         {loading?
       <div className="spinner position-absolute w-100  ">
     <Spinner animation="border" className=' position-absolute top-50 start-50 p-4 text-light' />
     </div>
     
     :
-    <Form noValidate className='form   mx-auto my-5 d-flex flex-column'  onSubmit={handleSubmit(onSubmit)}>
+    <Form noValidate className='form  py-5  mx-auto  d-flex flex-column'  onSubmit={handleSubmit(onSubmit)}>
       <Form.Group className='position-relative' >
         <Form.Label className='label position-absolute'> Name:</Form.Label>
         <Form.Control  className='py-3'
@@ -91,11 +98,11 @@ dispatch(sign(data))
 {error?
         <p className='error fs-6 mt-3 ms-2'>* email already exists</p>:null
 }
-        <p className='error fs-6  ms-2'>{errors.email?.message}</p>
+        <p className='error fs-6 mt-3 ms-2'>{errors.email?.message}</p>
       <Form.Group   className='position-relative'>
         <Form.Label  className='label position-absolute'> Password:</Form.Label>
         <Form.Control className=' py-3'
-          type="password"
+          type={`${showPassword?'text':'password'}`}
           placeholder="password"
           {...register('password',
             {required:'* password is required',
@@ -110,12 +117,14 @@ dispatch(sign(data))
             }
           )}
         />
+    <FontAwesomeIcon icon={faEye}  className="eye position-absolute top-50 end-0 me-3" onClick={()=>setShowPassword(!showPassword)}/>
+
       </Form.Group>
         <p className='error fs-6 mt-3 ms-2'>{errors.password?.message}</p>
       <Form.Group   className='position-relative'>
         <Form.Label  className='label position-absolute'>Confirm Password:</Form.Label>
         <Form.Control className=' py-3'
-          type="password"
+          type={`${showConfirmPassword?'text':'password'}`}
           placeholder="confirm Password"
           {...register('rePassword',
             {required:'* confirm password is required',
@@ -132,6 +141,8 @@ dispatch(sign(data))
             }
           )}
         />
+    <FontAwesomeIcon icon={faEye}  className="eye position-absolute top-50 end-0 me-3" onClick={()=>setShowConfirmPassword(!showConfirmPassword)}/>
+
       </Form.Group>
         <p className='error fs-6 mt-3 ms-2'>{errors.rePassword?.message}</p>
       <Form.Group   className='position-relative'>

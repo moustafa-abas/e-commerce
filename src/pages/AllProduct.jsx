@@ -35,19 +35,19 @@ const AllProduct = () => {
     filterData=Data.filter(product=>product.brand.slug.includes(Searchvalue))
   }
   return (
-    <div className="position-relative">
+    <div className="allproduct position-relative">
     {loading?
-      <div className="spinner position-absolute w-100  ">
+      <div className=" spinner position-absolute w-100  ">
     <Spinner animation="border" className=' position-absolute top-50 start-50 p-4 text-light' />
     </div>
     
     :
-    <div className={`${alert?'opacity-25':''} allproduct  text-center my-5 Container `}>
+    <div className={`${alert?'opacity-25':''}   text-center  Container py-5 `}>
       <div className=" d-flex gap-lg-5   gap-3 flex-wrap">
       {categories?.map((item)=>
       <button key={item._id} className={`${item.slug===filter?'active':'' } text-capitalize py-2 px-4`} onClick={()=>setFilter(item.slug)}>{item.slug}</button>
       )}
-    <button className={`text-capitalize text-dark py-2 px-5`} onClick={()=>setFilter(null)} >all</button>
+    <button className={`text-capitalize  py-2 px-5`} onClick={()=>setFilter(null)} >all product</button>
     </div>
     {filterData.length?
     <>

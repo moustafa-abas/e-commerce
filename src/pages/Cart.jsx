@@ -23,7 +23,7 @@ useEffect(()=>{
 },[count])
 
 return (
-<div className="cart position-relative">
+<div className="cart pb-5 position-relative">
 <>
 {logined?
 <>
@@ -33,10 +33,10 @@ return (
 </div>
 :
  <>
-{data?
+{data.length?
 <div className="Container">
 {data.map((item)=>
-  <div className="product my-5 d-flex flex-column flex-md-row gap-md-5" key={item._id}>
+  <div className="product py-5 d-flex flex-column flex-md-row gap-md-5" key={item._id}>
 <div className="left w-25">
 <img src={item.product.imageCover} alt="" className="w-100 position-relative" height={250}    />
     </div>
@@ -66,14 +66,14 @@ dispatch(remove())
   )
 }
 <div className="d-flex justify-content-between fs-5 my-5 fw-bold pt-3 border-top  ">total price<span>${totalCartPrice}</span></div>
-<button className=" py-3 w-25 d-flex justify-content-center mx-auto my-5" onClick={()=>dispatch(clearCart())}> delete all product</button>
+<button className=" py-3 w-25 d-flex justify-content-center mx-auto mt-5" onClick={()=>dispatch(clearCart())}> delete all product</button>
 </div>
-:<h2 className="text-center mt-5">no product in your cart</h2>
+:<h2 className="text-center  pt-5">no product in your cart</h2>
 }
 </> 
 }
 </>
-:<h2 className=" text-center mt-5">please login or signup first</h2>
+:<h2 className=" text-center  pt-5">please login or signup first</h2>
 }
 </>
 </div>
