@@ -111,7 +111,7 @@ button{
 }
     }
 }
-button{
+button:first-child{
 width: 40px;
 height: 40px;
     border-radius: 50%;
@@ -184,12 +184,7 @@ cursor: pointer;
 }
 button{
     border-radius: 10px;
-    &:last-of-type{
-        @media ($max_mobile) {
             
-            width: 50% !important;
-        }
-    }
 }
 a{
     color: white ;
@@ -227,11 +222,12 @@ position: relative;
 .cart , .selectedproduct{
     color: var(--text-color);
     background-color: var(--bg-color);
+    .left, .right{
+        @media ($max-tablet) {
+            width: 100% !important;
+        }
     .product{
-        .left, .right{
-            @media ($max-tablet) {
-                width: 100% !important;
-            }
+
         }
         h5{
             color: gray;
@@ -241,7 +237,8 @@ position: relative;
                 cursor: pointer;
                 color: var(--text-color) !important;
             }
-        }    
+        } 
+
     }
             span{
                 color: var(--main-color);
@@ -295,6 +292,9 @@ a{
         border-top-left-radius: 50px !important;
         border-bottom-right-radius: 50px !important;
         background-color: black !important;
+        h2{
+    color: white !important;
+        }
         @media ($max_mobile) {
             width: 75% !important;
 padding: 25px !important;
@@ -312,5 +312,22 @@ padding: 25px !important;
                 color: white !important;
             }
         }
+    }
+}
+.success{
+    background-color: var(--main-color);
+    height: 5px;
+    // width: 90%;
+    animation: changeWidth 4s linear ; /* الأنميشن مع تكرار لإعادة الكرات*/
+}
+@keyframes changeWidth {
+    0% {
+        width: 90%; /* بداية العرض */
+    }
+    50% {
+        width: 50%; /* تغيير العرض إلى 50% بعد نصف مدة الأنيميشن */
+    }
+    100% {
+        width: 0; /* العودة إلى العرض الابتدائي */
     }
 }

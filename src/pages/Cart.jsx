@@ -33,7 +33,7 @@ return (
 </div>
 :
  <>
-{data.length?
+{data?
 <div className="Container">
 {data.map((item)=>
   <div className="product py-5 d-flex flex-column flex-md-row gap-md-5" key={item._id}>

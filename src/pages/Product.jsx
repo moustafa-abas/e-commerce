@@ -1,21 +1,26 @@
 import {  useDispatch, useSelector } from "react-redux"
 import { Carousel } from "react-bootstrap"
 import MostProducts from "../components/MostProducts"
-import { addToCart } from "../redux/cartSlice"
+import { addToCart, cancelAlert } from "../redux/cartSlice"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCartShopping, faX } from "@fortawesome/free-solid-svg-icons"
 import Spinner from 'react-bootstrap/Spinner';
 import { useState } from "react"
+import Success from "../components/Success"
 
 const Product = () => {
 const dispatch=useDispatch()
 const [alert, setAlert] = useState(false)
 const logined=useSelector((state)=>state.user.isLogin)
+const add=useSelector((state)=>state.cart.successAdd)
 
     const productData=useSelector((state)=>state.products.productData)
    const productImages=productData.images
    const rating=productData.ratingsAverage
    const loading=useSelector((state)=>state.cart.loading)
+   setTimeout(() => {
+    dispatch(cancelAlert())
+    }, 5000);
   return (
     <div  className="position-relative selectedproduct pb-5">
         {loading?
@@ -67,8 +72,9 @@ const logined=useSelector((state)=>state.user.isLogin)
            }}> add to cart <FontAwesomeIcon icon={faCartShopping} className='fs-5 mx-2 position-relative' />            </button>
         </div>
       </div>
-      <h2 className="my-5 text-center "> other product</h2>
 
+
+      <h2 className="my-5 text-center "> other products</h2>
       <MostProducts/>
       </div>
           }
@@ -85,6 +91,11 @@ const logined=useSelector((state)=>state.user.isLogin)
     </div>
   </div>
 :null}
+{
+add?  
+<Success/>
+:null
+}
     </div>
   )
 }

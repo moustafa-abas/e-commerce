@@ -24,7 +24,7 @@ return (
         dispatch(fetchProductData())
       }}/>
     <h1 className="my-4 fs-5 mx-2">{item.title}</h1>
-    <>
+    <div className="d-flex flex-column justify-content-between">
     <div className="d-flex justify-content-between align-items-center my- mx-3"> <del className="fs-4 fw-bold "> {item.priceAfterDiscount?'$' + item.priceAfterDiscount:''} </del>
     <h4 >$ {item.price} </h4>
     </div>
@@ -33,7 +33,7 @@ return (
         }}> add to cart
     <FontAwesomeIcon icon={faCartShopping} className='fs-5 mx-2 position-relative' />
     </button>
-    </>
+    </div>
         </div>
   )
   :<h2 className=" text-center">no product available now</h2>

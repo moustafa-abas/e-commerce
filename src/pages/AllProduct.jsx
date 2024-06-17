@@ -2,11 +2,12 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { ProductDetails,  fetchProductData } from "../redux/productSlice"
 import { Button, Card} from "react-bootstrap"
-import { addToCart } from "../redux/cartSlice"
+import { addToCart, cancelAlert } from "../redux/cartSlice"
 import Spinner from 'react-bootstrap/Spinner';
 import { fetchCategories } from "../redux/catSlice"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCartShopping, faX } from "@fortawesome/free-solid-svg-icons"
+import Success from "../components/Success"
 
 const AllProduct = () => {
   const [filter, setFilter] = useState(null)
@@ -18,9 +19,13 @@ const AllProduct = () => {
     dispatch(fetchCategories())
 
   },[])
+setTimeout(() => {
+dispatch(cancelAlert())
+}, 5000);
   const products=useSelector((state)=>state.products.products?.data||[])
   const categories=useSelector((state)=>state.categories.category?.data||[])
   const loading=useSelector((state)=>state.cart.loading)
+  const add=useSelector((state)=>state.cart.successAdd)
   const logined=useSelector((state)=>state.user.isLogin)
   var filterData=null
   var Data=null
@@ -102,6 +107,11 @@ const AllProduct = () => {
     </div>
   </div>
 :null}
+{
+add?  
+<Success/>
+:null
+}
 </div>
 
   )
