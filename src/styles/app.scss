@@ -268,7 +268,6 @@ footer{
     }
 background-color: var(--bg-color);
 color: var(--text-color) !important;
-// color: white;
 h2{
     color: var(--main-color) ;
 }
@@ -317,17 +316,16 @@ padding: 25px !important;
 .success{
     background-color: var(--main-color);
     height: 5px;
-    // width: 90%;
-    animation: changeWidth 4s linear ; /* الأنميشن مع تكرار لإعادة الكرات*/
+    animation: changeWidth 4s linear ;
 }
 @keyframes changeWidth {
     0% {
-        width: 90%; /* بداية العرض */
+        width: 90%; 
     }
     50% {
-        width: 50%; /* تغيير العرض إلى 50% بعد نصف مدة الأنيميشن */
+        width: 50%;
     }
     100% {
-        width: 0; /* العودة إلى العرض الابتدائي */
+        width: 0; 
     }
 }
