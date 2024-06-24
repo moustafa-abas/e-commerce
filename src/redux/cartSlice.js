@@ -138,7 +138,7 @@ state.successAdd=true
       .addCase(getUserCart.fulfilled, (state, action) => {
         state.loading = false;
         state.addedProduct = action.payload.products;
-        state.numOfProduct = state.cartDetails.numOfCartItems;
+        // state.numOfProduct = state.cartDetails.numOfCartItems;
 
       })
       .addCase(getUserCart.rejected, (state, action) => {

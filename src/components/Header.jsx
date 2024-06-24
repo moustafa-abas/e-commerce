@@ -17,7 +17,7 @@ const Header = () => {
     useEffect(()=>{
         dispatch(getUserCart())
     },[])
-    const numOfProduct=useSelector((state)=>state.cart.numOfProduct)
+    const numOfProduct=useSelector((state)=>state.cart.cartDetails.numOfCartItems)
     const logined=useSelector((state)=>state.user.isLogin)
     const darktheme=useSelector((state)=>state.user.darkTheme)
 return (
