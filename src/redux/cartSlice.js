@@ -3,7 +3,7 @@ import axios from "axios";
 
 const initialState = {
   loading: false,
-  numOfProduct: "0",
+  numOfProduct: '0',
   cartDetails: null,
   error: null,
   addedProduct: null,
@@ -63,8 +63,7 @@ export const updateQuantity = createAsyncThunk(
   "cart/updateQuantity",
   async ({ count, id }, { getState }) => {
     const token = getState().user.userData.token;
-    const response = await axios.put(
-      `https://ecommerce.routemisr.com/api/v1/cart/${id}`,
+    const response = await axios.put(`https://ecommerce.routemisr.com/api/v1/cart/${id}`,
       { count: `${count}` },
       {
         headers: {
@@ -140,6 +139,7 @@ state.successAdd=true
         state.loading = false;
         state.addedProduct = action.payload.products;
         state.numOfProduct = state.cartDetails.numOfCartItems;
+
       })
       .addCase(getUserCart.rejected, (state, action) => {
         state.loading = false;

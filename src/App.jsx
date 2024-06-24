@@ -13,7 +13,6 @@ import { useSelector } from 'react-redux'
 import Footer from './components/Footer'
 function App() {
   const darktheme=useSelector((state)=>state.user.darkTheme)
-console.log(darktheme)
 if(darktheme===true){
 document.body.style.backgroundColor='black'
 }else{

@@ -25,7 +25,6 @@ const Home = () => {
     }
 },[dispatch, logined])
 const loading=useSelector((state)=>state.cart.loading)
-console.log(loading)
 // const products=useSelector((state)=>state.products.products?.data ||[])
 
 // const shuffledProducts = [...products].sort(() => Math.floor(Math.random()*3)-1 ).slice(0,8);
