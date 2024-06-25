@@ -125,7 +125,6 @@ const cartSlice = createSlice({
         state.cartDetails = action.payload;
         state.numOfProduct = state.cartDetails.numOfCartItems;
 state.successAdd=true
-
       })
       .addCase(addToCart.rejected, (state, action) => {
         state.loading = false;
@@ -138,8 +137,8 @@ state.successAdd=true
       .addCase(getUserCart.fulfilled, (state, action) => {
         state.loading = false;
         state.addedProduct = action.payload.products;
-        // state.numOfProduct = state.cartDetails.numOfCartItems;
-
+        state.numOfProduct = state.cartDetails.numOfCartItems;
+console.log(state.numOfProduct)
       })
       .addCase(getUserCart.rejected, (state, action) => {
         state.loading = false;
