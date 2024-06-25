@@ -41,7 +41,7 @@ export const getUserCart = createAsyncThunk(
         },
       }
     );
-    return response.data.data;
+    return response.data
   }
 );
 export const clearCart = createAsyncThunk(
@@ -136,9 +136,8 @@ state.successAdd=true
       })
       .addCase(getUserCart.fulfilled, (state, action) => {
         state.loading = false;
-        state.addedProduct = action.payload.products;
-        state.numOfProduct = state.cartDetails.numOfCartItems;
-console.log(state.numOfProduct)
+        state.addedProduct = action.payload.data.products;
+        state.numOfProduct = action.payload.numOfCartItems;
       })
       .addCase(getUserCart.rejected, (state, action) => {
         state.loading = false;
